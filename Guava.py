@@ -16,9 +16,31 @@ def main():
         main()
 
 def intsort():
-   
+    
+    list = []
+    listDone = False
 
-    print ("un-sorted list:")
+    print ("Enter the integers you wish to be sorted,")
+    print ("Once all numbers have been entered, enter 'exit' to continue.")
+
+    while listDone != True:
+        userNum = input ("Enter a number:")
+
+        if userNum == "exit":
+            listDone = True
+
+        try:
+            userNum = float(userNum)
+        except:
+            print ("Please enter a numeric value,")
+            continue
+
+        userNum = float(userNum)
+
+        list.append(userNum)
+        print (str(userNum) + " added to list")
+
+    print ("\nun-sorted list:")
     print (list)
 
 
