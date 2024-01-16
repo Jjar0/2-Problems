@@ -4,7 +4,7 @@ def main():
     menu = input ("[1/2]:")
 
     if menu == "1":
-        print ("\n[SORTING INTEGERS]\n")
+        print ("\n[SORTING INTEGERS]")
         int_sort()
 
     if menu == "2":
