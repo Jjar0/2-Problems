@@ -45,7 +45,10 @@ def int_sort(): #problem 2 integer sort
     print ("\nList of values in ascending order:") #prints list values in ascending order
     print(list)
 
-    
+    listMean = (sum(list)/len(list)) #Calculating mean of list
+
+    print("\nMean of listed values:")
+    print(str(listMean)+"\n")
 
     main()
 
