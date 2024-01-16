@@ -1,32 +1,15 @@
-def main():
-    print ("\nPlease select an activity from the following options:") #menu system
-    print ("[1] Sorting Integers\n[2] Noughts and Crosses")
-    menu = input ("[1/2]:")
-
-    if menu == "1":
-        print ("\n[SORTING INTEGERS]")
-        int_sort()
-
-    if menu == "2":
-        print ("\n[NOUGHTS AND CROSSES]\n")
-        noughts_crosses()
-
-    else:
-        print ("\nplease enter a listed number.\n")
-        main()
-
 def int_sort(): #problem 2 integer sort
     
     list = []
     listDone = False
 
     print ("\nEnter the integers you wish to be sorted,")
-    print ("Once all numbers have been entered, enter 'done' to continue.")
+    print ("Once all numbers have been entered, enter 'exit' to continue.")
 
     while listDone != True: #loop for user to enter unlimited numbers
         userNum = input ("Enter a number:")
 
-        if userNum == "done":
+        if userNum == "exit":
             listDone = True
 
         try:
@@ -60,7 +43,7 @@ def int_sort(): #problem 2 integer sort
             int_sort()
 
         if userRestart == "2":
-            main()
+            break
 
         else:
             print ("Please enter a valid number")
@@ -77,14 +60,3 @@ def bubble_sort(list):
                 list[y], list[y+1] = list[y+1], list[y] #swap elements
     
     return(list) #return to wider process
-
-def noughts_crosses():
-    
-    
-    
-    main()
-
-main()
-   
-
-
