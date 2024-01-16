@@ -1,5 +1,5 @@
 def main():
-    print ("Please select an activity from the following options:") #menu system
+    print ("\nPlease select an activity from the following options:") #menu system
     print ("[1] Sorting Integers\n[2] Noughts and Crosses")
     menu = input ("[1/2]:")
 
@@ -20,7 +20,7 @@ def int_sort(): #problem 2 integer sort
     list = []
     listDone = False
 
-    print ("Enter the integers you wish to be sorted,")
+    print ("\nEnter the integers you wish to be sorted,")
     print ("Once all numbers have been entered, enter 'exit' to continue.")
 
     while listDone != True: #loop for user to enter unlimited numbers
@@ -50,7 +50,21 @@ def int_sort(): #problem 2 integer sort
     print("\nMean of listed values:")
     print(str(listMean)+"\n")
 
-    main()
+    print ("Would you like to enter a new list?")
+    
+    while True:
+        print ("[1] Yes (Restart)\n[2] No (Menu)")
+        userRestart = input("[1/2]:")
+
+        if userRestart == "1":
+            int_sort()
+
+        if userRestart == "2":
+            main()
+
+        else:
+            print ("Please enter a valid number")
+            continue
 
 def bubble_sort(list):
 
