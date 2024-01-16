@@ -4,12 +4,12 @@ def int_sort(): #problem 2 integer sort
     listDone = False
 
     print ("\nEnter the integers you wish to be sorted,")
-    print ("Once all numbers have been entered, enter 'exit' to continue.")
+    print ("Once all numbers have been entered, enter 'done' to continue.")
 
     while listDone != True: #loop for user to enter unlimited numbers
         userNum = input ("Enter a number:")
 
-        if userNum == "exit":
+        if userNum == "done":
             listDone = True
 
         try:
