@@ -1,15 +1,19 @@
 import time
 import random
 
-def start():
+def wipe_scores():
 
     playerScore = 0
     cpuScore = 0
     drawScore = 0
+    start(playerScore,cpuScore,drawScore)
+
+
+def start(playerScore,cpuScore,drawScore):
 
     while True:
         print ("Would you like to,")
-        print ("[1] Play Game\n[2] See Rules\n[3] Leave Game")
+        print ("[1] Play Game\n[2] See Rules\n[3] Wipe Scores\n[4] Leave Game")
         startChoice = input ("[1/2/3]:")
 
         if startChoice == "1":
@@ -24,6 +28,10 @@ def start():
             continue
 
         if startChoice == "3":
+            print ("Scores have been wiped.")
+            wipe_scores()
+
+        if startChoice == "4":
             break
 
         else:
@@ -32,8 +40,8 @@ def start():
 
 def setup(playerScore,cpuScore,drawScore):
 
-    if playerScore > 0 or cpuScore > 0 or drawScore > 0:
-        print ("\nSCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.\n")
+    #if playerScore > 0 or cpuScore > 0 or drawScore > 0:
+        #print ("\nSCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.\n")
     
     pos = {1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9'}
 
@@ -176,15 +184,17 @@ def game_end(result,playerScore,cpuScore,drawScore):
         print ("*** DRAW - NOBODY WINS ***")
         drawScore = drawScore+1
 
-    print ("\nDo you want to [1] play another round? or [2] exit to menu? (wipes scores)")
+    print ("\nSCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.\n")
+
+    print ("\nDo you want to [1] play another round? or [2] exit to menu?")
 
     while True:
         epilogue = input ("[1/2]:")
 
-        if epilogue == 1:
+        if epilogue == '1':
             setup(playerScore,cpuScore,drawScore)
 
-        if epilogue == 2:
+        if epilogue == '2':
             start()
 
         else:

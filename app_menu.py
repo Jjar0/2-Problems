@@ -11,7 +11,7 @@ while True:
     if menu == "2":
         print ("\n[NOUGHTS AND CROSSES]\n")
         from noughts_crosses import start
-        start()
+        wipe_scores()
 
     else:
         print ("\nplease enter a listed number.\n")
