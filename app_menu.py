@@ -7,11 +7,13 @@ while True:
         print ("\n[SORTING INTEGERS]")
         from integer_sorting import int_sort
         int_sort()
+        continue
 
     if menu == "2":
         print ("\n[NOUGHTS AND CROSSES]\n")
         from noughts_crosses import wipe_scores
         wipe_scores()
+        continue
 
     else:
         print ("\nplease enter a listed number.\n")
