@@ -12,8 +12,8 @@ def start():
 
         if startChoice == "2":
             print ("\nRULES:")
-            print ("The player and computer will take turns to place noughts 'O' and crosses 'X' on a 3x3 grid.\nTo win, you must place 3 noughts in a row anywhere on the grid,")
-            print ("However, if the computer places 3 crosses in a row first, you will lose!\n")
+            print ("The player and computer will take turns to place noughts 'O' and crosses 'X' on a 3x3 grid.\nTo win, you must place 3 crosses in a row anywhere on the grid,")
+            print ("However, if the computer places 3 noughts in a row first, you will lose!\n")
             continue
 
         if startChoice == "3":
@@ -21,12 +21,11 @@ def start():
 
         else:
             print ("Please enter a listed option from the menu.")
-            continue
-        
+            continue  
 
 def setup():
     
-    pos = {1:"1",2:"2",3:"3",4:"4",5:"5",6:"6",7:"7",8:"8",9:"9"}
+    pos = {1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9'}
 
     print ("\nLets flip a coin to see who goes first,\nIf it lands heads, the player goes first.\nIf it lands tails, the computer goes first.")
     flip = input ("\nPress enter to flip a coin")
@@ -47,15 +46,54 @@ def setup():
     pass
 
 def computer_turn(pos):
-    pass
+    return
+    
+    print("[COMPUTERS TURN]")
+    
+    while True:
+        cpuSelection = input ("[1-9]:")
+
+        if cpuSelection not in pos:
+            continue
+
+        if cpuSelection in pos:
+            print (str(cpuSelection)+" selected.")
+            break
+
 
 def player_turn(pos):
 
     print_board(pos)
 
+    print ("[YOUR TURN]")
 
+    print ("To place your 'X', Please select a number inside the grid")
+    while True:
+        selection = input ("[1-9]:")
 
-    pass
+        try:
+            selection = int(selection)
+        except:
+            print("Please enter a number!")
+            continue
+
+        if selection not in pos:
+            print ("Please enter a number from the grid!")
+            continue
+
+        if pos[int(selection)] in {"X","0"}:
+            print ("That spot is already taken!")
+            continue
+        
+        if selection in pos:
+            print (str(selection)+" selected.")
+            break
+
+    pos[selection] = "X"
+
+    print_board(pos)
+
+    computer_turn(pos)
 
 def print_board(pos):
     
@@ -66,6 +104,12 @@ def print_board(pos):
     print ("---+---+---")
     print (f" {pos[7]} | {pos[8]} | {pos[9]} ")
     print("\n")
+
+def check_win(pos):
+    pass
+
+def check_draw(pos):
+    pass
     
 
 start()
