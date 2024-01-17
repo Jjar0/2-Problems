@@ -195,7 +195,7 @@ def game_end(result,playerScore,cpuScore,drawScore):
             setup(playerScore,cpuScore,drawScore)
 
         if epilogue == '2':
-            start()
+            start(playerScore,cpuScore,drawScore)
 
         else:
             print ("Please enter a listed number,")
