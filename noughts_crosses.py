@@ -5,7 +5,7 @@ def start():
     
     while True:
         print ("Would you like to,")
-        print ("[1] Play Game\n[2] See Rules\n[3] Session Score")
+        print ("[1] Play Game\n[2] See Rules\n[3] Leave Game")
         startChoice = input ("[1/2/3]:")
 
         if startChoice == "1":
@@ -20,7 +20,7 @@ def start():
             continue
 
         if startChoice == "3":
-            continue
+            break
 
         else:
             print ("Please enter a listed option from the menu.")
@@ -65,6 +65,10 @@ def computer_turn(pos):
 
     print_board(pos)
 
+    check_win(pos)
+
+    check_draw(pos)
+
     player_turn(pos)
 
 def player_turn(pos):
@@ -99,6 +103,10 @@ def player_turn(pos):
 
     print_board(pos)
 
+    check_win(pos)
+
+    check_draw(pos)
+
     computer_turn(pos)
 
 def print_board(pos):
@@ -112,10 +120,46 @@ def print_board(pos):
     print("\n")
 
 def check_win(pos):
-    pass
+        
+    if (pos[1] == 'X' and pos[2] == 'X' and pos[3] == 'X') \
+    or (pos[4] == 'X' and pos[5] == 'X' and pos[6] == 'X') \
+    or (pos[7] == 'X' and pos[8] == 'X' and pos[9] == 'X') \
+    or (pos[1] == 'X' and pos[4] == 'X' and pos[7] == 'X') \
+    or (pos[2] == 'X' and pos[5] == 'X' and pos[8] == 'X') \
+    or (pos[3] == 'X' and pos[6] == 'X' and pos[9] == 'X') \
+    or (pos[1] == 'X' and pos[5] == 'X' and pos[9] == 'X') \
+    or (pos[7] == 'X' and pos[5] == 'X' and pos[3] == 'X'):
+        result = ("player")
+        game_end(result)
+
+    if (pos[1] == 'O' and pos[2] == 'O' and pos[3] == 'O') \
+    or (pos[4] == 'O' and pos[5] == 'O' and pos[6] == 'O') \
+    or (pos[7] == 'O' and pos[8] == 'O' and pos[9] == 'O') \
+    or (pos[1] == 'O' and pos[4] == 'O' and pos[7] == 'O') \
+    or (pos[2] == 'O' and pos[5] == 'O' and pos[8] == 'O') \
+    or (pos[3] == 'O' and pos[6] == 'O' and pos[9] == 'O') \
+    or (pos[1] == 'O' and pos[5] == 'O' and pos[9] == 'O') \
+    or (pos[7] == 'O' and pos[5] == 'O' and pos[3] == 'O'):
+        result = ("cpu")
+        game_end(result)
 
 def check_draw(pos):
     pass
     
+def game_end(result):
 
-start()
+    if result == ("player"):
+        print ("*** YOU WIN! ***")
+        playerScore = playerScore +1
+
+    if result == ("cpu"):
+        print ("*** YOU LOSE - THE COMPUTER WINS ***")
+        cpuScore = cpuScore +1
+
+    if result == ("draw"):
+        print ("*** DRAW - NOBODY WINS ***")
+        drawScore = drawScore +1
+
+    print ("SCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.")
+
+    start()
