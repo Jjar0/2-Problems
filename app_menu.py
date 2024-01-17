@@ -10,7 +10,7 @@ while True:
 
     if menu == "2":
         print ("\n[NOUGHTS AND CROSSES]\n")
-        from noughts_crosses import start
+        from noughts_crosses import wipe_scores
         wipe_scores()
 
     else:
