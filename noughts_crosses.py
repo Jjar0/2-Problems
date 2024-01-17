@@ -1,3 +1,6 @@
+import time
+import random
+
 def start():
     
     while True:
@@ -31,7 +34,6 @@ def setup():
     flip = input ("\nPress enter to flip a coin")
     print ("...")
 
-    import random
     coin = random.randint(1,9)
     landing = (coin%2)
 
@@ -46,20 +48,24 @@ def setup():
     pass
 
 def computer_turn(pos):
-    return
-    
-    print("[COMPUTERS TURN]")
-    
+
+    print ("[CPU TURN]")
+
     while True:
-        cpuSelection = input ("[1-9]:")
+        selection = random.randint(1,9)
 
-        if cpuSelection not in pos:
+        if pos[int(selection)] in {"X","O"}:
             continue
-
-        if cpuSelection in pos:
-            print (str(cpuSelection)+" selected.")
+        
+        if selection in pos:
+            print (str(selection)+" selected.")
             break
 
+    pos[selection] = "O"
+
+    print_board(pos)
+
+    player_turn(pos)
 
 def player_turn(pos):
 
@@ -81,7 +87,7 @@ def player_turn(pos):
             print ("Please enter a number from the grid!")
             continue
 
-        if pos[int(selection)] in {"X","0"}:
+        if pos[int(selection)] in {"X","O"}:
             print ("That spot is already taken!")
             continue
         
