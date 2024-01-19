@@ -39,9 +39,6 @@ def start(playerScore,cpuScore,drawScore):
             continue  
 
 def setup(playerScore,cpuScore,drawScore):
-
-    #if playerScore > 0 or cpuScore > 0 or drawScore > 0:
-        #print ("\nSCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.\n")
     
     pos = {1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9'}
 
