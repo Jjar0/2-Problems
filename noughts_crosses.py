@@ -1,6 +1,6 @@
 import random
 
-def wipe_scores():
+def wipe_scores(): #wipes scores when a student is done playing
 
     playerScore = 0
     cpuScore = 0
@@ -8,9 +8,9 @@ def wipe_scores():
     start(playerScore,cpuScore,drawScore)
 
 
-def start(playerScore,cpuScore,drawScore):
+def start(playerScore,cpuScore,drawScore): #main menu for game
 
-    while True:
+    while True: #input validation loop for menu
         print ("Would you like to,")
         print ("[1] Play Game\n[2] See Rules\n[3] Wipe Scores\n[4] Leave Game")
         startChoice = input ("[1/2/3]:")
@@ -31,15 +31,15 @@ def start(playerScore,cpuScore,drawScore):
             wipe_scores()
 
         if startChoice == "4":
-            break
+            break #game ends here
 
         else:
             print ("Please enter a listed option from the menu.")
             continue  
 
-def setup(playerScore,cpuScore,drawScore):
+def setup(playerScore,cpuScore,drawScore): #chooses turns, defines game variables
     
-    pos = {1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9'}
+    pos = {1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9'} #dictionary for numpad ascii display
 
     turn = 0
 
@@ -47,7 +47,7 @@ def setup(playerScore,cpuScore,drawScore):
     flip = input ("\nPress enter to flip a coin")
     print ("...")
 
-    coin = random.randint(1,9)
+    coin = random.randint(1,9) #50/50 chance coin toss for first turn
     landing = (coin%2)
 
     if landing == 0:
@@ -63,28 +63,28 @@ def computer_turn(pos,turn,playerScore,cpuScore,drawScore):
     print ("[CPU TURN]")
 
     while True:
-        selection = random.randint(1,9)
+        selection = random.randint(1,9) #cpu selects random position on board
 
-        if pos[int(selection)] in {"X","O"}:
+        if pos[int(selection)] in {"X","O"}: #checking if spot is taken
             continue
         
         if selection in pos:
-            print (str(selection)+" selected.")
+            print (str(selection)+" selected.") #display to player which spot cpu chose
             break
 
-    pos[selection] = "O"
+    pos[selection] = "O" #replace number with 'O'
 
-    turn = turn+1
+    turn = turn+1 #increment turn count
 
     print_board(pos)
 
-    check_win(pos,playerScore,cpuScore,drawScore)
+    check_win(pos,playerScore,cpuScore,drawScore) #check for draw, win and change to players turn
 
     check_draw(turn,playerScore,cpuScore,drawScore)
 
     player_turn(pos,turn,playerScore,cpuScore,drawScore)
 
-def player_turn(pos,turn,playerScore,cpuScore,drawScore):
+def player_turn(pos,turn,playerScore,cpuScore,drawScore):#players turn
 
     print_board(pos)
 
@@ -92,39 +92,39 @@ def player_turn(pos,turn,playerScore,cpuScore,drawScore):
 
     print ("To place your 'X', Please select a number inside the grid")
     while True:
-        selection = input ("[1-9]:")
+        selection = input ("[1-9]:")#player chooses values 1-9
 
         try:
-            selection = int(selection)
+            selection = int(selection) #input validation for integers
         except:
             print("Please enter a number!")
             continue
 
-        if selection not in pos:
+        if selection not in pos: #validation for range of inputs
             print ("Please enter a number from the grid!")
             continue
 
-        if pos[int(selection)] in {"X","O"}:
+        if pos[int(selection)] in {"X","O"}: #check if spot is taken
             print ("That spot is already taken!")
             continue
         
         if selection in pos:
-            print (str(selection)+" selected.")
+            print (str(selection)+" selected.")#confirm selection to player
             break
 
-    pos[selection] = "X"
+    pos[selection] = "X" #replace number selected with 'X'
 
-    turn = turn+1
+    turn = turn+1 #increment turn count
 
     print_board(pos)
 
-    check_win(pos,playerScore,cpuScore,drawScore)
+    check_win(pos,playerScore,cpuScore,drawScore) #check for win, draw, go to computer turn.
 
     check_draw(turn,playerScore,cpuScore,drawScore)
 
     computer_turn(pos,turn,playerScore,cpuScore,drawScore)
 
-def print_board(pos):
+def print_board(pos): #Displays board and current dictionary values to the player every turn
     
     print("\n")
     print (f" {pos[1]} | {pos[2]} | {pos[3]} ")
@@ -134,7 +134,7 @@ def print_board(pos):
     print (f" {pos[7]} | {pos[8]} | {pos[9]} ")
     print("\n")
 
-def check_win(pos,playerScore,cpuScore,drawScore):
+def check_win(pos,playerScore,cpuScore,drawScore): #checks for game win.
         
     if (pos[1] == 'X' and pos[2] == 'X' and pos[3] == 'X') \
     or (pos[4] == 'X' and pos[5] == 'X' and pos[6] == 'X') \
@@ -158,16 +158,16 @@ def check_win(pos,playerScore,cpuScore,drawScore):
         result = "cpu"
         game_end(result,playerScore,cpuScore,drawScore)
 
-def check_draw(turn,playerScore,cpuScore,drawScore):
+def check_draw(turn,playerScore,cpuScore,drawScore): #checks turn count to see if board is full
     if turn == 9:
         result = "draw"
         game_end(result,playerScore,cpuScore,drawScore)
     
     
-def game_end(result,playerScore,cpuScore,drawScore):
+def game_end(result,playerScore,cpuScore,drawScore): #displays scores to the player at game end
 
     if result == ("player"):
-        print ("*** YOU WIN! ***")
+        print ("*** YOU WIN! ***") #iterate scores depending on game results
         playerScore = playerScore+1
 
     if result == ("cpu"):
@@ -178,9 +178,9 @@ def game_end(result,playerScore,cpuScore,drawScore):
         print ("*** DRAW - NOBODY WINS ***")
         drawScore = drawScore+1
 
-    print ("\nSCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.\n")
+    print ("\nSCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.\n") #display scores
 
-    print ("\nDo you want to [1] play another round? or [2] exit to menu?")
+    print ("\nDo you want to [1] play another round? or [2] exit to menu?") #ask player if they wish to play aggain immediatley or go to menu
 
     while True:
         epilogue = input ("[1/2]:")
