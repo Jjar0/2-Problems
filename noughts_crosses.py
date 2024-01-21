@@ -47,7 +47,7 @@ def setup(playerScore,cpuScore,drawScore):
     flip = input ("\nPress enter to flip a coin")
     print ("...")
 
-    coin = random.randint(1,10)
+    coin = random.randint(1,9)
     landing = (coin%2)
 
     if landing == 0:
