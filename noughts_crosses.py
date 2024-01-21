@@ -7,12 +7,11 @@ def wipe_scores(): #wipes scores when a student is done playing
     drawScore = 0
     start(playerScore,cpuScore,drawScore)
 
-
 def start(playerScore,cpuScore,drawScore): #main menu for game
 
     while True: #input validation loop for menu
         print ("Would you like to,")
-        print ("[1] Play Game\n[2] See Rules\n[3] Wipe Scores\n[4] Leave Game")
+        print ("[1] Play Game\n[2] See Rules\n[3] See Scores\n[4] Wipe Scores\n[5] Leave Game")
         startChoice = input ("[1/2/3]:")
 
         if startChoice == "1":
@@ -27,10 +26,14 @@ def start(playerScore,cpuScore,drawScore): #main menu for game
             continue
 
         if startChoice == "3":
+            print ("\nCURRENT SCORES:\nPLAYER - "+str(playerScore)+" wins.\nCOMPUTER - "+str(cpuScore)+" wins.\nTIES - "+str(drawScore)+" games.\n") #display scores
+            continue
+
+        if startChoice == "4":
             print ("Scores have been wiped.")
             wipe_scores()
 
-        if startChoice == "4":
+        if startChoice == "5":
             break #game ends here
 
         else:
