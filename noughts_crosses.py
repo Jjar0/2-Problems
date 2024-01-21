@@ -1,4 +1,3 @@
-import time
 import random
 
 def wipe_scores():
@@ -48,7 +47,7 @@ def setup(playerScore,cpuScore,drawScore):
     flip = input ("\nPress enter to flip a coin")
     print ("...")
 
-    coin = random.randint(1,9)
+    coin = random.randint(1,10)
     landing = (coin%2)
 
     if landing == 0:
@@ -58,8 +57,6 @@ def setup(playerScore,cpuScore,drawScore):
     if landing == 1:
         print ("Tails!\nComputer goes first.")
         computer_turn(pos,turn,playerScore,cpuScore,drawScore)
-
-    pass
 
 def computer_turn(pos,turn,playerScore,cpuScore,drawScore):
 
