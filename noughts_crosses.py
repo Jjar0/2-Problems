@@ -68,7 +68,7 @@ def computer_turn(pos,turn,playerScore,cpuScore,drawScore):
     while True:
         selection = random.randint(1,9) #cpu selects random position on board
 
-        if pos[int(selection)] in {"X","O"}: #checking if spot is taken
+        if pos[int(selection)] == {"X","O"}: #checking if spot is taken
             continue
         
         if selection in pos:
@@ -107,7 +107,7 @@ def player_turn(pos,turn,playerScore,cpuScore,drawScore):#players turn
             print ("Please enter a number from the grid!")
             continue
 
-        if pos[int(selection)] in {"X","O"}: #check if spot is taken
+        if pos[int(selection)] == {"X","O"}: #check if spot is taken
             print ("That spot is already taken!")
             continue
         
@@ -144,9 +144,7 @@ def check_win(pos,playerScore,cpuScore,drawScore): #checks for game win.
     or (pos[7] == 'X' and pos[8] == 'X' and pos[9] == 'X') \
     or (pos[1] == 'X' and pos[4] == 'X' and pos[7] == 'X') \
     or (pos[2] == 'X' and pos[5] == 'X' and pos[8] == 'X') \
-    or (pos[3] == 'X' and pos[6] == 'X' and pos[9] == 'X') \
-    or (pos[1] == 'X' and pos[5] == 'X' and pos[9] == 'X') \
-    or (pos[7] == 'X' and pos[5] == 'X' and pos[3] == 'X'):
+    or (pos[3] == 'X' and pos[6] == 'X' and pos[9] == 'X'):
         result = "player"
         game_end(result,playerScore,cpuScore,drawScore)
 
@@ -155,9 +153,7 @@ def check_win(pos,playerScore,cpuScore,drawScore): #checks for game win.
     or (pos[7] == 'O' and pos[8] == 'O' and pos[9] == 'O') \
     or (pos[1] == 'O' and pos[4] == 'O' and pos[7] == 'O') \
     or (pos[2] == 'O' and pos[5] == 'O' and pos[8] == 'O') \
-    or (pos[3] == 'O' and pos[6] == 'O' and pos[9] == 'O') \
-    or (pos[1] == 'O' and pos[5] == 'O' and pos[9] == 'O') \
-    or (pos[7] == 'O' and pos[5] == 'O' and pos[3] == 'O'):
+    or (pos[3] == 'O' and pos[6] == 'O' and pos[9] == 'O'):
         result = "cpu"
         game_end(result,playerScore,cpuScore,drawScore)
 
