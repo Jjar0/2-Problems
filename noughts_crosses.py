@@ -68,7 +68,7 @@ def computer_turn(pos,turn,playerScore,cpuScore,drawScore):
     while True:
         selection = random.randint(1,9) #cpu selects random position on board
 
-        if pos[int(selection)] == {"X","O"}: #checking if spot is taken
+        if pos[int(selection)] in {"X","O"}: #checking if spot is taken
             continue
         
         if selection in pos:
@@ -107,7 +107,7 @@ def player_turn(pos,turn,playerScore,cpuScore,drawScore):#players turn
             print ("Please enter a number from the grid!")
             continue
 
-        if pos[int(selection)] == {"X","O"}: #check if spot is taken
+        if pos[int(selection)] in {"X","O"}: #check if spot is taken
             print ("That spot is already taken!")
             continue
         
