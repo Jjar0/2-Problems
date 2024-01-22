@@ -9,7 +9,7 @@ def int_sort(): #problem 2 integer sort
     while listDone != True: #loop for user to enter unlimited numbers
         userNum = input ("Enter a number:")
 
-        if userNum == "done":
+        if userNum == "done": #[REVISION - TEST 6] Added validation for empty lists.
             if len(list) == 0:
                 print ("You must have at least one number in your list to continue.")
                 continue
