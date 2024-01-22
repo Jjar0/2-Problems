@@ -108,7 +108,7 @@ def player_turn(pos,turn,playerScore,cpuScore,drawScore):#players turn
             continue
 
         if pos[int(selection)] in {"X","O"}: #check if spot is taken
-            print ("That spot is already taken!")
+            print ("That spot is already taken!") #[REVISION - TEST 7] changed validation to function properly.
             continue
         
         if selection in pos:
@@ -146,7 +146,7 @@ def check_win(pos,playerScore,cpuScore,drawScore): #checks for game win.
     or (pos[2] == 'X' and pos[5] == 'X' and pos[8] == 'X') \
     or (pos[3] == 'X' and pos[6] == 'X' and pos[9] == 'X') \
     or (pos[1] == 'X' and pos[5] == 'X' and pos[9] == 'X') \
-    or (pos[3] == 'X' and pos[5] == 'X' and pos[7] == 'X'):
+    or (pos[3] == 'X' and pos[5] == 'X' and pos[7] == 'X'): #[REVISION - TEST 12] Added win checking for diagonal lines.
         result = "player"
         game_end(result,playerScore,cpuScore,drawScore)
 
