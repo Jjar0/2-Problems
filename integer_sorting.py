@@ -10,6 +10,11 @@ def int_sort(): #problem 2 integer sort
         userNum = input ("Enter a number:")
 
         if userNum == "done":
+            if len(list) == 0:
+                print ("You must have at least one number in your list to continue.")
+                continue
+
+        if userNum == "done":
             listDone = True
 
         try:
