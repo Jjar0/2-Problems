@@ -144,7 +144,9 @@ def check_win(pos,playerScore,cpuScore,drawScore): #checks for game win.
     or (pos[7] == 'X' and pos[8] == 'X' and pos[9] == 'X') \
     or (pos[1] == 'X' and pos[4] == 'X' and pos[7] == 'X') \
     or (pos[2] == 'X' and pos[5] == 'X' and pos[8] == 'X') \
-    or (pos[3] == 'X' and pos[6] == 'X' and pos[9] == 'X'):
+    or (pos[3] == 'X' and pos[6] == 'X' and pos[9] == 'X') \
+    or (pos[1] == 'X' and pos[5] == 'X' and pos[9] == 'X') \
+    or (pos[3] == 'X' and pos[5] == 'X' and pos[7] == 'X'):
         result = "player"
         game_end(result,playerScore,cpuScore,drawScore)
 
